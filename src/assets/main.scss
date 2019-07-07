@@ -1,5 +1,80 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+//grid
+  .container {
+    width: 90%;
+    max-width: 767px;
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+
+    &_columns {
+      flex-direction: column;
+    }
+  }
+
+//colors
+  $c-bg: #F9FAFB;
+
+  $c-black: #E5E5E5 ;
+  $c-black-light: #3B414B;
+  $c-black-gray: #757F8C;
+  $c-gray: #A6AAB4;
+  $c-gray-btn: #A0A4B0;
+  $c-gray-light: #D6D9E4;
+  $c-gray-divider: #E8E9EC;
+  $c-gray-box: #F0F1F4;
+  $c-white: #FFFFFF;
+
+  $c-purple: #463C6A;
+  $c-purple-disable: #E8E2FC;
+  $c-purple-light: #E8E2FC;
+
+  $c-green-notification: #54D3AD;
+  $c-green-positive: #10C971;
+  $c-green-light: #E8F9E5;
+
+  $c-pink-negative: #FA2E69;
+  $c-pink-light: #FBEBEF;
+
+  $c-orange-negative: #FF7D00;
+  $c-orange-light: #FFF4E5;
+
+  $c-blue-negative: #46AAF2;
+  $c-blue-light: #E6F0F7;
+
+  $c-gray-icon: #808080;
+  $c-gray-icon-light: #F2F2F2;
+
+
+// titles
+
+  .title {
+    margin: 0;
+    padding: 0;
+
+    &_page {
+      font-size: 3.2rem;
+      line-height: 42px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    &_subtitle {
+      font-size: 1.4rem;
+      color: $c-gray;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+    }
+  }
+
+
+
+
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -8,18 +83,11 @@
 
 html, body {
   font-family: 'Sarabun', sans-serif;
+  background-color: $c-bg;
+  font-size: 62.5%;
 }
 
-.container {
-  width: 90%;
-  max-width: 767px;
-  margin: 0 auto;
-}
-
-.row {
-  display: flex;
-
-  &_columns {
-    flex-direction: column;
-  }
+figure {
+  padding: 0;
+  margin: 0;
 }
