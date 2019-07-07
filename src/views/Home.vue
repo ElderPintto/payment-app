@@ -1,7 +1,7 @@
 <template>
   <main>
     <Header></Header>
-    <!-- <Person></Person> -->
+    <Search></Search>
     <Transfers
       :transfers="transfers">
     </Transfers>
@@ -10,13 +10,14 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import Person from "@/components/Person.vue";
+import Search from "@/components/Search.vue";
 import Transfers from "@/components/Transfers.vue";
 
 export default {
   name: "home",
   components: {
     Header,
+    Search,
     Transfers
   },
   data() {
