@@ -48,6 +48,10 @@ export default {
     &_profilePhoto {
       display: flex;
       justify-content: left;
+
+      img {
+        border: 3px solid #ececfb;
+      }
     }
   }
 </style>

@@ -38,7 +38,8 @@ export default {
 
     &_image {
       border-radius: 50%;
-      border: 3px solid #ececfb;
+      box-sizing: content-box;
+
     }
   }
 </style>
