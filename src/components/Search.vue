@@ -25,6 +25,7 @@ export default {
     background: #F0F1F4;
     opacity: 0.8;
     border-radius: 6px;
+    margin: 25px 0;
 
     &_input {
       all: initial;

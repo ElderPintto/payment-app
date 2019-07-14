@@ -39,6 +39,8 @@ export default {
     &_image {
       border-radius: 50%;
       box-sizing: content-box;
+      width: 100%;
+      height: auto
 
     }
   }

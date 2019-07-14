@@ -69,6 +69,7 @@
       font-weight: 500;
       line-height: 20px;
       letter-spacing: 0.2px;
+      margin-bottom: 4px;
     }
   }
 
@@ -85,6 +86,14 @@ html, body {
   font-family: 'Sarabun', sans-serif;
   background-color: $c-bg;
   font-size: 62.5%;
+  margin: 0;
+}
+body {
+  padding: 16px;
+}
+
+main {
+  margin-top: 55px;
 }
 
 figure {

@@ -37,7 +37,7 @@ export default {
   .header {
 
     &_row {
-      align-items: flex-end;
+      align-items: center;
       justify-content: space-between;
     }
 

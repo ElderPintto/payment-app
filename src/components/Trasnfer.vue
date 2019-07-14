@@ -30,7 +30,7 @@ export default {
   },
   methods:{
     amoutCurreny(amount) {
-      return amount.toLocaleString('pt-br', { style:'currency' , currency:'BRL'} )
+      return amount.toLocaleString('pt', { style:'currency' , currency:'EUR'} )
     }
   }
 }

@@ -20,6 +20,9 @@ export default {
       type: Array,
       required: true
     }
+  },
+  methods: {
+
   }
 }
 </script>
@@ -27,6 +30,9 @@ export default {
 <style lang="scss">
   .transfers {
     padding-top: 10px;
+    padding-bottom: 100px;
+    overflow: auto;
+    max-height: 300px;
     &_item {
       padding: 14px;
       margin-bottom: 16px;
