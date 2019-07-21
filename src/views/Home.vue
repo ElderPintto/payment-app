@@ -21,10 +21,10 @@
       </Slide>
     </Hooper>
     <SelectionOperation :operations="operations" @cliqueaqui="selectTransfer()"></SelectionOperation>
-    <Search></Search>
+    <Search v-model="searchT"></Search>
     <transition name="fade">
       <Transfers
-        :transfers="listView">
+        :transfers="filterList">
       </Transfers>
      </transition>
     <Menu></Menu>
@@ -53,6 +53,7 @@ export default {
   },
   data() {
     return {
+      searchT: "",
       transfersView: "send",
       transfers:[
           {id:"12345", type: "send", picture:"eliclicia.jpg", name:"eliclicia Oliveira", date: "20 january 2019", amount: 972},
@@ -76,8 +77,13 @@ export default {
     }
   },
   computed: {
-    listView() {
-      return this.transfers.filter( item => item.type == this.transfersView );
+    filterList() {
+      return this.transfers.filter( item => {
+
+        if (item.type == this.transfersView) {
+          return item.name.toLowerCase().includes(this.searchT.toLowerCase());
+        }
+      })
     }
   },
   methods: {
@@ -98,8 +104,10 @@ export default {
 
       });
     },
-    sortDay() {
-
+    filterTransfers() {
+      return this.transfers.filter(item => {
+        console.log( item.name.includes(event.target.value))
+      })
     }
   }
 };

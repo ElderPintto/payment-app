@@ -1,6 +1,9 @@
 <template>
   <div class="search">
-    <input class="search_input" type="search" v-on:keyup.enter="search" placeholder="Search transaction">
+    <input  class="search_input" type="search"
+            v-on:keyup.enter="search"
+            @input="search" v-model="content"
+            placeholder="Search transaction">
     <button class="search_button" @click.enter="search">
       <i class="fas fa-search"></i>
     </button>
@@ -10,9 +13,15 @@
 <script>
 export default {
   name: "Search",
+  prop: ['value'],
+  data:{
+    return() {
+      content: this.value
+    }
+  },
   methods: {
-    search() {
-      alert('vai buscar!')
+    search(e) {
+      this.$emit("input", this.content)
     }
   }
 }
