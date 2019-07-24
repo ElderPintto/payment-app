@@ -1,5 +1,6 @@
 // vue.config.js
 module.exports = {
+  publicPath: "/payment-app/",
   css: {
     loaderOptions: {
       // pass options to sass-loader
