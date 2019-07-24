@@ -15,18 +15,21 @@
             {{ card.name }}
           </div>
           <div class="creditCard_date">
-            {{ card.date }}
+            {{ dataTransfer(card.date) }}
           </div>
         </div>
       </Slide>
     </Hooper>
     <SelectionOperation :operations="operations" @cliqueaqui="selectTransfer()"></SelectionOperation>
     <Search v-model="searchT"></Search>
-    <transition name="fade">
       <Transfers
+        v-if="filterList"
         :transfers="filterList">
       </Transfers>
-     </transition>
+      <h3 v-else>
+
+        Sem resultadoss
+      </h3>
     <Menu></Menu>
   </main>
 </template>
@@ -35,10 +38,12 @@
 import Header from "@/components/Header.vue";
 import { Hooper, Slide } from 'hooper';
 import 'hooper/dist/hooper.css';
+import moment from "moment";
 import Search from "@/components/Search.vue";
 import Transfers from "@/components/Transfers.vue";
 import SelectionOperation from "@/components/SelectionOperation.vue";
 import Menu from "@/components/Menu.vue";
+
 
 export default {
   name: "home",
@@ -56,14 +61,14 @@ export default {
       searchT: "",
       transfersView: "send",
       transfers:[
-          {id:"12345", type: "send", picture:"eliclicia.jpg", name:"eliclicia Oliveira", date: "20 january 2019", amount: 972},
-          {id:"54321", type: "send", picture:"mac.jpg", name:"Maclevison Giovanni", date: "19 january 2019", amount: 150},
-          {id:"51423", type: "send", picture:"weslley.jpg", name:"Weslley Aguiar", date: "19 january 2019", amount: 972},
-          {id:"32514", type: "send", picture:"felipinho.jpg", name:"Felipe Reis", date: "18 january 2019", amount: 972},
-          {id:"34512", type: "send", picture:"augusto.jpg", name:"Augusto", date: "17 january 2019", amount: 972},
-          {id:"15243", type: "received", picture:"joao.jpg", name:"Joao Nascimento", date: "20 january 2019", amount: 1000},
-          {id:"42315", type: "received", picture:"rebeca.jpg", name:"received Franz Ferdinand", date: "19 january 2019", amount: 170},
-          {id:"35142", type: "received", picture:"rebeca.jpg", name:"received John Doe", date: "19 january 2019", amount: 72},
+          {id:"12345", type: "send", picture:"eliclicia.jpg", name:"eliclicia Oliveira", date: "1563753997", amount: 972},
+          {id:"54321", type: "send", picture:"mac.jpg", name:"Maclevison Giovanni", date: "1563580147", amount: 150},
+          {id:"51423", type: "send", picture:"weslley.jpg", name:"Weslley Aguiar", date: "1563580147", amount: 972},
+          {id:"32514", type: "send", picture:"felipinho.jpg", name:"Felipe Reis", date: "1563148147", amount: 972},
+          {id:"34512", type: "send", picture:"augusto.jpg", name:"Augusto", date: "1562888947", amount: 972},
+          {id:"15243", type: "received", picture:"joao.jpg", name:"Joao Nascimento", date: "1562975347", amount: 1000},
+          {id:"42315", type: "received", picture:"rebeca.jpg", name:"received Franz Ferdinand", date: "1562888947", amount: 170},
+          {id:"35142", type: "received", picture:"rebeca.jpg", name:"received John Doe", date: "1562888947", amount: 72},
         ],
       cards: [
         { logo: "visa-pay-logo.png", number:"1234567891234567",name: "Elder Pinto", date: "08/21", color:"linear-gradient(100deg, rgba(34,193,195,1) 0%, rgba(45,253,198,1) 100%)"   },
@@ -82,6 +87,9 @@ export default {
 
         if (item.type == this.transfersView) {
           return item.name.toLowerCase().includes(this.searchT.toLowerCase());
+        }else if(!item)  {
+          return [{name:"Nenhum item"}]
+
         }
       })
     }
@@ -104,10 +112,8 @@ export default {
 
       });
     },
-    filterTransfers() {
-      return this.transfers.filter(item => {
-        console.log( item.name.includes(event.target.value))
-      })
+    dataTransfer(t) {
+      return moment.unix(t)
     }
   }
 };
