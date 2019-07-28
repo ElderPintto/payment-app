@@ -1,8 +1,10 @@
 <template>
+
   <main>
+    <h1 class="warningMode">view in mobile mode</h1>
     <Header></Header>
     <Hooper :itemsToShow="1.25" :centerMode="true" class="creditCard">
-      <Slide v-for="card in cards" class="creditCard_item" :style="{background: card.color}">
+      <Slide v-for="card in cards" class="creditCard_item" :style="{background: card.color}" :key="card.number">
         <figure class="creditCard_img">
           <img :src="require(`../assets/${card.logo}`)" alt="">
         </figure>
@@ -15,7 +17,7 @@
             {{ card.name }}
           </div>
           <div class="creditCard_date">
-            {{ dataTransfer(card.date) }}
+            {{ card.date }}
           </div>
         </div>
       </Slide>
@@ -23,13 +25,12 @@
     <SelectionOperation :operations="operations" @cliqueaqui="selectTransfer()"></SelectionOperation>
     <Search v-model="searchT"></Search>
       <Transfers
-        v-if="filterList"
+
         :transfers="filterList">
       </Transfers>
-      <h3 v-else>
-
-        Sem resultadoss
-      </h3>
+      <!-- <h3 class="noResult">
+        No results of  <span>"{{ searchT }}"</span>
+      </h3> -->
     <Menu></Menu>
   </main>
 </template>
@@ -38,7 +39,7 @@
 import Header from "@/components/Header.vue";
 import { Hooper, Slide } from 'hooper';
 import 'hooper/dist/hooper.css';
-import moment from "moment";
+
 import Search from "@/components/Search.vue";
 import Transfers from "@/components/Transfers.vue";
 import SelectionOperation from "@/components/SelectionOperation.vue";
@@ -61,14 +62,14 @@ export default {
       searchT: "",
       transfersView: "send",
       transfers:[
-          {id:"12345", type: "send", picture:"eliclicia.jpg", name:"eliclicia Oliveira", date: "1563753997", amount: 972},
-          {id:"54321", type: "send", picture:"mac.jpg", name:"Maclevison Giovanni", date: "1563580147", amount: 150},
-          {id:"51423", type: "send", picture:"weslley.jpg", name:"Weslley Aguiar", date: "1563580147", amount: 972},
-          {id:"32514", type: "send", picture:"felipinho.jpg", name:"Felipe Reis", date: "1563148147", amount: 972},
-          {id:"34512", type: "send", picture:"augusto.jpg", name:"Augusto", date: "1562888947", amount: 972},
-          {id:"15243", type: "received", picture:"joao.jpg", name:"Joao Nascimento", date: "1562975347", amount: 1000},
-          {id:"42315", type: "received", picture:"rebeca.jpg", name:"received Franz Ferdinand", date: "1562888947", amount: 170},
-          {id:"35142", type: "received", picture:"rebeca.jpg", name:"received John Doe", date: "1562888947", amount: 72},
+          {id:"12345", type: "send", picture:"eliclicia.jpg", name:"eliclicia Oliveira", date: "2019-07-27T17:17:00Z", amount: 972},
+          {id:"54321", type: "send", picture:"mac.jpg", name:"Maclevison Giovanni", date: "2019-07-26T17:17:00Z", amount: 150},
+          {id:"51423", type: "send", picture:"weslley.jpg", name:"Weslley Aguiar", date: "2019-07-25T17:17:00Z", amount: 972},
+          {id:"32514", type: "send", picture:"felipinho.jpg", name:"Felipe Reis", date: "2019-07-24T17:17:00Z", amount: 972},
+          {id:"34512", type: "send", picture:"augusto.jpg", name:"Augusto", date: "2019-07-23T17:17:00Z", amount: 972},
+          {id:"15243", type: "received", picture:"joao.jpg", name:"Joao Nascimento", date: "2019-07-22T17:17:00Z", amount: 1000},
+          {id:"42315", type: "received", picture:"rebeca.jpg", name:"received Franz Ferdinand", date: "2019-07-21T17:17:00Z", amount: 170},
+          {id:"35142", type: "received", picture:"rebeca.jpg", name:"received John Doe", date: "2019-07-20T17:17:00Z", amount: 72},
         ],
       cards: [
         { logo: "visa-pay-logo.png", number:"1234567891234567",name: "Elder Pinto", date: "08/21", color:"linear-gradient(100deg, rgba(34,193,195,1) 0%, rgba(45,253,198,1) 100%)"   },
@@ -112,13 +113,25 @@ export default {
 
       });
     },
-    dataTransfer(t) {
-      return moment.unix(t)
-    }
   }
 };
 </script>
 <style lang="scss">
+
+.noResult,
+.warningMode {
+  font-size: 20px;
+  text-align: center;
+
+  span {
+    color: $c-pink-negative
+  }
+}
+
+.warningMode {
+  color: $c-orange-negative
+}
+
 .creditCard {
   margin: 14px 14px 0 14px;
 

@@ -5,7 +5,7 @@
       </Profile>
       <div class="transfer_join">
         <p class="transfer_name"> <span>to:</span> <em> {{trasnfer.name}}</em></p>
-        <span class="transfer_date">{{trasnfer.date}}</span>
+        <span class="transfer_date">{{ dateTransfer(trasnfer.date) }}</span>
       </div>
     </div>
     <div class="transfer_box">
@@ -16,6 +16,7 @@
 
 <script>
 import Profile from '@/components/Profile.vue'
+import moment from "moment";
 
 export default {
   name: "Trasnfer",
@@ -31,7 +32,11 @@ export default {
   methods:{
     amoutCurreny(amount) {
       return amount.toLocaleString('pt', { style:'currency' , currency:'EUR'} )
+    },
+    dateTransfer(date) {
+      return moment(date).format("DD MM YYYY")
     }
+
   }
 }
 </script>
