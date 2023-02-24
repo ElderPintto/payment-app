@@ -62,19 +62,19 @@ export default {
       searchT: "",
       transfersView: "send",
       transfers:[
-          {id:"12345", type: "send", picture:"eliclicia.jpg", name:"eliclicia Oliveira", date: "2019-07-27T17:17:00Z", amount: 972},
-          {id:"54321", type: "send", picture:"mac.jpg", name:"Maclevison Giovanni", date: "2019-07-26T17:17:00Z", amount: 150},
-          {id:"51423", type: "send", picture:"weslley.jpg", name:"Weslley Aguiar", date: "2019-07-25T17:17:00Z", amount: 972},
-          {id:"32514", type: "send", picture:"felipinho.jpg", name:"Felipe Reis", date: "2019-07-24T17:17:00Z", amount: 972},
-          {id:"34512", type: "send", picture:"augusto.jpg", name:"Augusto", date: "2019-07-23T17:17:00Z", amount: 972},
-          {id:"15243", type: "received", picture:"joao.jpg", name:"Joao Nascimento", date: "2019-07-22T17:17:00Z", amount: 1000},
+          {id:"12345", type: "send", picture:"rebeca.jpg", name:"rebeca Oliveira", date: "2019-07-27T17:17:00Z", amount: 972},
+          {id:"54321", type: "send", picture:"rebeca.jpg", name:"rebeca Giovanni", date: "2019-07-26T17:17:00Z", amount: 150},
+          {id:"51423", type: "send", picture:"rebeca.jpg", name:"rebeca Aguiar", date: "2019-07-25T17:17:00Z", amount: 972},
+          {id:"32514", type: "send", picture:"rebeca.jpg", name:"rebeca Reis", date: "2019-07-24T17:17:00Z", amount: 972},
+          {id:"34512", type: "send", picture:"rebeca.jpg", name:"rebeca Teste", date: "2019-07-23T17:17:00Z", amount: 972},
+          {id:"15243", type: "received", picture:"rebeca.jpg", name:"Joao Nascimento", date: "2019-07-22T17:17:00Z", amount: 1000},
           {id:"42315", type: "received", picture:"rebeca.jpg", name:"received Franz Ferdinand", date: "2019-07-21T17:17:00Z", amount: 170},
           {id:"35142", type: "received", picture:"rebeca.jpg", name:"received John Doe", date: "2019-07-20T17:17:00Z", amount: 72},
         ],
       cards: [
         { logo: "visa-pay-logo.png", number:"1234567891234567",name: "Elder Pinto", date: "08/21", color:"linear-gradient(100deg, rgba(34,193,195,1) 0%, rgba(45,253,198,1) 100%)"   },
-        { logo: "visa-pay-logo.png", number:"1234567891234567",name: "Eliclicia Oliveira", date: "08/21", color:"linear-gradient(100deg, rgba(17,105,106,1) 0%, rgba(156,45,253,1) 100%)"   },
-        { logo: "visa-pay-logo.png", number:"1234567891234567",name: "Edilson", date: "08/21", color:"black"   }
+        { logo: "visa-pay-logo.png", number:"1234567891234567",name: "rebeca Oliveira", date: "08/21", color:"linear-gradient(100deg, rgba(17,105,106,1) 0%, rgba(156,45,253,1) 100%)"   },
+        { logo: "visa-pay-logo.png", number:"1234567891234567",name: "rebeca", date: "08/21", color:"black"   }
       ],
       operations: [
         {id:"1", name: "send", active: true},
